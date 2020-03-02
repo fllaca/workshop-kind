@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: nginx:1.17.8-alpine
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: data
+      volumes:
+        - name: data
+          hostPath:
+            path: /host-volumes/nginx-data
+

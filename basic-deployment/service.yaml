@@ -1,0 +1,22 @@
+# Test the deployment with:
+# kubectl run --rm -it --image tutum/curl:alpine --command sh --
+# curl web-service
+#
+# or with:
+# kubectl proxy --port 8080
+# curl localhost:8080/api/v1/namespaces/default/services/web-service/proxy/
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  sessionAffinity: None
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

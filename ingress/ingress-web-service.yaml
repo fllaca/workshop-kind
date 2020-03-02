@@ -1,0 +1,14 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-service
+spec:
+  rules:
+  - host: web.fuf.me
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: web-service
+          servicePort: 80
