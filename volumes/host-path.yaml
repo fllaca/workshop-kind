@@ -1,3 +1,4 @@
+# Test with: kubectl get --raw /api/v1/namespaces/default/services/web-volumes/proxy/
 ---
 apiVersion: v1
 kind: Service

@@ -14,7 +14,17 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginx:1.17.8-alpine
+        image: hashicorp/http-echo
+        args:
+          - "-listen"
+          - ":80"
+          - "-text"
+          - "Hello from $(MY_POD_NAME)"
+        env:
+        - name: MY_POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
       # For demo purposes, these settings below will just override default `--pod-eviction-timeout 300s`
       # of controller manager
       tolerations:

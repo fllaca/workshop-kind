@@ -1,14 +1,17 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: web-service
 spec:
   rules:
-  - host: web.fuf.me
+  - host: web.127.0.0.1.nip.io
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: web-service
-          servicePort: 80
+          service:
+            name: web-service
+            port:
+              number: 80

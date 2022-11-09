@@ -5,5 +5,5 @@ nodes:
 - role: control-plane
   extraMounts:
   # Change to a different path that works for your laptop:
-  - hostPath: ./kind-volumes
+  - hostPath: ./volumes/kind-volumes
     containerPath: /host-volumes

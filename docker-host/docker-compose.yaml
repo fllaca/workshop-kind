@@ -1,3 +1,8 @@
+# you can connect to the database with this command: docker-compose exec db mysql -u wordpress -p wordpress -D wordpress
+#
+# show tables;
+
+---
 version: '3.3'
 
 services:
